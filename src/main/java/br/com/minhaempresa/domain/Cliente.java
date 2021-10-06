@@ -9,7 +9,7 @@ import java.io.Serializable;
 @Entity
 public class Cliente implements Serializable {
 
-    private static long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
     public Cliente(){
         super();
@@ -72,13 +72,13 @@ public class Cliente implements Serializable {
 
     }
 
-    public int getIdentificador() {
+    public int getId() {
 
         return id;
 
     }
 
-    public void setIdentificador(int id) {
+    public void setId(int id) {
 
         this.id = id;
 

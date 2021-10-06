@@ -15,7 +15,6 @@ public class ConsultaSaldoController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        Integer nome = Integer.valueOf(req.getParameter("id"));
         int id = Integer.valueOf(req.getParameter("id"));
 
         ConsultaSaldoService consultarSaldoService = new ConsultaSaldoService();
@@ -24,3 +23,7 @@ public class ConsultaSaldoController extends HttpServlet {
         resp.getWriter().println(saldo);
     }
 }
+
+
+
+
