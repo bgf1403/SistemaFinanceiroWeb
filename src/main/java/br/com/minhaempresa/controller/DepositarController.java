@@ -27,7 +27,7 @@ public class DepositarController extends HttpServlet {
             resp.getWriter().println("Valor depositado: " + valor);
             resp.getWriter().println("O saldo disponivel e: " + conta.consultarSaldo());
 
-        }catch(NumberFormatException e){
+        } catch(NumberFormatException e){
             resp.getWriter().println("Somente valor positivo!");
         }
 
