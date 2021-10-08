@@ -6,12 +6,10 @@ import br.com.minhaempresa.domain.ContaCorrente;
 
 public class DepositarService {
 
-    public Conta depositar(String nome, String sobrenome, double valor){
+    public void depositar(String nome, String sobrenome, double valor){
         Cliente cliente = new Cliente(nome, sobrenome);
         Conta conta = new ContaCorrente(cliente);
         conta.depositar(valor);
-
-        return conta;
     }
 
 }

@@ -2,6 +2,7 @@ package br.com.minhaempresa.controller;
 
 import br.com.minhaempresa.domain.Conta;
 import br.com.minhaempresa.service.DepositarService;
+import net.bytebuddy.asm.Advice;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,6 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.text.NumberFormat;
+import java.util.Currency;
+
 
 @WebServlet(urlPatterns = "/depositar")
 public class DepositarController extends HttpServlet {
@@ -21,11 +25,10 @@ public class DepositarController extends HttpServlet {
 
         try {
             DepositarService depositarService = new DepositarService();
-            Conta conta = depositarService.depositar(nome, sobrenome, valor);
 
-            resp.getWriter().println("Cliente: " + conta.getTitular().getNome() + " " + conta.getTitular().getSobrenome());
-            resp.getWriter().println("Valor depositado: " + valor);
-            resp.getWriter().println("O saldo disponivel e: " + conta.consultarSaldo());
+
+//            resp.getWriter().println("Cliente: " + conta.getTitular().getNome() + " " + conta.getTitular().getSobrenome());
+            resp.getWriter().println("Valor depositado: " + NumberFormat.getCurrencyInstance().format(valor));
 
         } catch(NumberFormatException e){
             resp.getWriter().println("Somente valor positivo!");
